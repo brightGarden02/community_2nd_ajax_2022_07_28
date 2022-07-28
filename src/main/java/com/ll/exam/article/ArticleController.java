@@ -2,6 +2,7 @@ package com.ll.exam.article;
 
 import com.ll.exam.Rq;
 import com.ll.exam.dto.ArticleDto;
+import com.ll.exam.util.Ut;
 
 import java.util.List;
 
@@ -162,5 +163,14 @@ public class ArticleController {
         rq.replace("/usr/article/detail/free/%d".formatted(id), "%d번 게시물이 수정되었습니다.".formatted(id));
 
 
+    }
+
+    public void getArticles(Rq rq) {
+
+        List<ArticleDto> articleDtos = articleService.findAll();
+
+        String jsonStr = Ut.json.toStr(articleDtos, "");
+
+        rq.println(jsonStr);
     }
 }
