@@ -9,6 +9,7 @@ import lombok.*;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class ArticleDto {
 
     private long id;
